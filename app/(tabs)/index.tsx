@@ -312,6 +312,15 @@ console.log("Data Series:", dataSeries);
 console.log("Timestamps:", timestamps);
 console.log("Series Headers:", seriesHeaders);
 
+
+if(json.temperature !== undefined){
+  setTemperature(json.temperature);
+}
+
+if(json.humidity !== undefined){
+  setHumidity(json.humidity);
+}
+
   
       } else {
         // Handle object format
@@ -615,6 +624,17 @@ const fetchAndResetHeaders = async () => {
               {key}: {value.toFixed(3)}
             </Text>
           ))}
+          {temperature!==0 && (
+            <Text style={{ fontSize: 16, textAlign: "center" }}>
+              Temperature: {temperature.toFixed( 1)} °C
+            </Text>
+          )}
+
+          {humidity!==0 && (
+            <Text style={{ fontSize: 16, textAlign: "center" }}>
+              Humidity: {humidity.toFixed(1)} %
+            </Text>
+          )}
 
           {/*left :  add temp / humidity if available */}
         </Card>

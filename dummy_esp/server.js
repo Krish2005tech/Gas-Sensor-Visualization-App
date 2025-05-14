@@ -9,6 +9,8 @@ app.use(cors()); // Allow all origins
 app.get('/', (req, res) => {
     const response = {
         timestamp: Date.now(),
+        humidity: Math.floor(Math.random() * 10) + 40,
+        temperature: Math.floor(Math.random() * 10) + 20,
         values: [
             Math.floor(Math.random() * 10) + 450,
             Math.floor(Math.random() * 10) + 500,
