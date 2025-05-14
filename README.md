@@ -33,7 +33,7 @@ The application:
 Before running this project, make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (v14 or newer)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [Expo CLI](https://docs.expo.dev/workflow/expo-cli/)
+- [Expo CLI (SDK 52 only) ](https://docs.expo.dev/workflow/expo-cli/) 
 - [Expo Go](https://expo.dev/go) app on your mobile device (for testing)
 
 ## 🚀 Installation & Setup
