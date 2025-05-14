@@ -705,7 +705,7 @@ const fetchAndResetHeaders = async () => {
                 r: '5',
               },
             }}
-            style={{ marginVertical: 8,borderRadius: 20, alignSelf: "center", paddingTop: 20,borderWidth: 0, borderColor: "#000",marginLeft: 30 }}
+            style={{ marginVertical: 8,borderRadius: 20, alignSelf: "center", paddingTop: 20,borderWidth: 0, borderColor: "#000",marginLeft: 40 }}
             bezier
             withDots={true}
             withInnerLines={false}
