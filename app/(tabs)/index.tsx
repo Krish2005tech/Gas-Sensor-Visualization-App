@@ -660,6 +660,16 @@ const fetchAndResetHeaders = async () => {
 
   
       <ScrollView contentContainerStyle={{ padding: 16, marginTop: 120, alignSelf: "center", flexGrow: 1 }} horizontal >
+
+
+      {/* Y-Axis Label */}
+      {Object.keys(dataSeries).length > 2 && seriesHeaders.length > 1 ? 
+  <View style={{ position: 'absolute', left: 0, top: '40%', transform: [{ rotate: '-90deg' }] }}>
+    <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Voltage (V)</Text>
+  </View>
+  :<></>}
+
+
         {seriesHeaders.length > 1 && Object.keys(dataSeries).length > 1 && ((dataSeries.Sensor1 && dataSeries.Sensor1.length > 1)||(dataSeries.reading1 && dataSeries.reading1.length > 1))  && (
           <LineChart
             data={{
@@ -695,7 +705,7 @@ const fetchAndResetHeaders = async () => {
                 r: '5',
               },
             }}
-            style={{ marginVertical: 8,borderRadius: 20, alignSelf: "center", paddingTop: 20,borderWidth: 0, borderColor: "#000" }}
+            style={{ marginVertical: 8,borderRadius: 20, alignSelf: "center", paddingTop: 20,borderWidth: 0, borderColor: "#000",marginLeft: 30 }}
             bezier
             withDots={true}
             withInnerLines={false}
