@@ -38,7 +38,7 @@ export default function HomeScreen() {
   const interval = React.useRef<any>(null);
   const viewLastLive = 300;
   
-  const esp_url="http://192.168.1.5:3000/"
+  const esp_url="http://localhost:3000/"
   const app_url = "https://script.google.com/macros/s/AKfycbx_KpRrrFZwu8fXoKHgPH7rX_xXJzw5tgevek8zQ0tvQkIilKyHtQkC3Kb8W-IGJtY/exec";
 
 
@@ -596,7 +596,7 @@ const fetchAndResetHeaders = async () => {
   
   <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
     <Appbar.Content 
-      title="Gas Sensor" 
+      title="Gas Sensor Array" 
       titleStyle={{ textAlign: 'center', fontSize: 24 }} 
     />
     <Appbar.Content 
@@ -659,7 +659,7 @@ const fetchAndResetHeaders = async () => {
       )}
 
   
-      <ScrollView contentContainerStyle={{ padding: 16, marginTop: 120, alignSelf: "center", flexGrow: 1 }} horizontal >
+      <ScrollView contentContainerStyle={{ padding: 16, marginTop: 10, alignSelf: "center", flexGrow: 1 }} horizontal >
 
 
       {/* Y-Axis Label */}
