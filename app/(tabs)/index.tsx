@@ -38,7 +38,7 @@ export default function HomeScreen() {
   const interval = React.useRef<any>(null);
   const viewLastLive = 300;
   
-  const esp_url="http://localhost:3000/"
+  const esp_url="http://192.168.210.134:3000"
   const app_url = "https://script.google.com/macros/s/AKfycbx_KpRrrFZwu8fXoKHgPH7rX_xXJzw5tgevek8zQ0tvQkIilKyHtQkC3Kb8W-IGJtY/exec";
 
 
@@ -678,7 +678,7 @@ const fetchAndResetHeaders = async () => {
   ? timestamps.slice(-viewLastLive)
   : liveLabels,
               datasets: seriesHeaders.map((header, index) => ({
-                data: dataSeries[header].slice(-viewLastLive) || [],
+                data: dataSeries[header] || [],
                 color: (opacity = 1) => getColorForIndex(index, opacity),
                 strokeWidth: 2,
                 legend: header
@@ -687,7 +687,7 @@ const fetchAndResetHeaders = async () => {
             
 
             width={700}
-            height={520}
+            height={300}
             yAxisSuffix=" V"
             yLabelsOffset={10} 
             chartConfig={{
@@ -720,7 +720,7 @@ const fetchAndResetHeaders = async () => {
       </ScrollView>
       {/* set text based on dataseties length */}
       {Object.keys(dataSeries).length > 2 && seriesHeaders.length > 1 ? 
-        <Text style={{ alignSelf: "center", marginTop: 5, fontSize: 14, fontWeight: "bold" }}>Time</Text> : 
+        <Text style={{ alignSelf: "center", marginTop: 0, fontSize: 14, fontWeight: "bold" }}>Time</Text> : 
         <></>
       }
     </ScrollView>
