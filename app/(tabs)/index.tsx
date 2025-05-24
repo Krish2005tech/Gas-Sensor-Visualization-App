@@ -292,7 +292,8 @@ setCurrentValues(updatedCurrentValues);
 currentValues = updatedCurrentValues;
 
 // Manually update timestamps
-let updatedTimestamps = [...timestamps.slice(-(maxLength - 1)), timestamp];
+// let updatedTimestamps = [...timestamps.slice(-(maxLength - 1)), timestamp];
+let updatedTimestamps = [...timestamps, timestamp];
 setTimestamps(updatedTimestamps);
 timestamps = updatedTimestamps;
 
@@ -301,7 +302,7 @@ let updatedDataSeries = { ...dataSeries };
 json.values.forEach((value, index) => {
   const header = `Sensor${index + 1}`;
   updatedDataSeries[header] = [
-    ...(updatedDataSeries[header] || []).slice(-(maxLength - 1)),
+    ...(updatedDataSeries[header] || []),
     value,
   ];
 });
@@ -333,7 +334,7 @@ if(json.humidity !== undefined){
               const value = parseFloat(json[header]);
               if (!Number.isNaN(value) && isFinite(value)) {
                 updated[header] = [
-                  ...(updated[header] || []).slice(-(maxLength - 1)),
+                  ...(updated[header] || []),
                   value,
                 ];
                 newCurrentValues[header] = value;
@@ -344,7 +345,7 @@ if(json.humidity !== undefined){
         });
   
         setCurrentValues(prev => ({ ...prev, ...newCurrentValues }));
-        setTimestamps(prev => [...prev.slice(-(maxLength - 1)), timestamp]);
+        setTimestamps(prev => [...prev, timestamp]);
       }
   
     } catch (error) {
@@ -677,13 +678,13 @@ const fetchAndResetHeaders = async () => {
   ? timestamps.slice(-viewLastLive)
   : liveLabels,
               datasets: seriesHeaders.map((header, index) => ({
-                data: dataSeries[header] || [],
+                data: dataSeries[header].slice(-viewLastLive) || [],
                 color: (opacity = 1) => getColorForIndex(index, opacity),
                 strokeWidth: 2,
                 legend: header
               })),
             }}
-
+            
 
             width={700}
             height={520}
